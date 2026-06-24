@@ -1,0 +1,34 @@
+graph TD
+    User[User] --> WebUI(Web Interface)
+    WebUI --> CrewAI(CrewAI Orchestrator)
+
+    CrewAI --> ResearchAgent(Research Agent)
+    CrewAI --> LegalReasoningAgent(Legal Reasoning Agent)
+    CrewAI --> RetrievalAgent(Retrieval Agent)
+
+    RetrievalAgent --> QdrantDB[Qdrant Vector Database]
+    RetrievalAgent --> DocumentIngestion(Document Ingestion)
+    DocumentIngestion --> ChunkingEmbeddings(Chunking & Embeddings)
+    ChunkingEmbeddings --> QdrantDB
+
+    ResearchAgent --> Serper(Serper Web Search)
+
+    ResearchAgent --> OllamaLLM(Ollama LLaMA 3.2)
+    LegalReasoningAgent --> OllamaLLM
+    RetrievalAgent --> OllamaLLM
+
+    WebUI --> OllamaLLM
+    WebUI --> QdrantDB
+    WebUI --> Serper
+
+    style User fill:#f9f,stroke:#333,stroke-width:2px
+    style WebUI fill:#bbf,stroke:#333,stroke-width:2px
+    style CrewAI fill:#ccf,stroke:#333,stroke-width:2px
+    style ResearchAgent fill:#fcf,stroke:#333,stroke-width:2px
+    style LegalReasoningAgent fill:#fcf,stroke:#333,stroke-width:2px
+    style RetrievalAgent fill:#fcf,stroke:#333,stroke-width:2px
+    style QdrantDB fill:#ffc,stroke:#333,stroke-width:2px
+    style DocumentIngestion fill:#cfc,stroke:#333,stroke-width:2px
+    style ChunkingEmbeddings fill:#cfc,stroke:#333,stroke-width:2px
+    style Serper fill:#cff,stroke:#333,stroke-width:2px
+    style OllamaLLM fill:#fcc,stroke:#333,stroke-width:2px

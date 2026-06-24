@@ -1,0 +1,20 @@
+retrieval_task:
+  description: >
+    Retrieve the most relevant legal document chunks from the local vector database for the following user query: {query}.
+  expected_output: >
+    A list of relevant legal document chunks with their sources and content.
+  agent: retrieval_agent
+
+research_task:
+  description: >
+    Conduct thorough research on the retrieved legal information and (if necessary) perform a web search to find additional relevant legal provisions, case laws, and precedents for the user query: {query}.
+  expected_output: >
+    A comprehensive report summarizing the relevant legal provisions, case laws, and precedents found for the user query.
+  agent: research_agent
+
+legal_reasoning_task:
+  description: >
+    Analyze the research report and provide a clear, concise, and contextually relevant explanation and reasoning for the user query: {query}. Ensure that the explanation is grounded in the retrieved legal information and research findings.
+  expected_output: >
+    A final legal explanation and reasoning for the user query, including references to relevant sections and case laws.
+  agent: legal_reasoning_agent
