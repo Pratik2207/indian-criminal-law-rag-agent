@@ -1,4 +1,4 @@
-
+<div align="center">
 # ⚖️ Indian Criminal Law RAG Agent
 
 **A fully local, open-source Retrieval-Augmented Generation (RAG) assistant for Indian Criminal Law — IPC, CrPC, BNS & BNSS.**
