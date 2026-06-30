@@ -2,7 +2,7 @@
 
 > A fully local, open-source Retrieval-Augmented Generation (RAG) system for Indian Criminal Law.
 
-**Authors:** Pratik Ramdas Sonawane · 
+**Author:** Pratik Ramdas Sonawane · 
 
 ---
 
