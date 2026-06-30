@@ -267,11 +267,6 @@ Legal queries are inherently sensitive. By running the LLM (Ollama) and the vect
 
 ---
 
-## 👥 Authors
-
-- **Pratik Ramdas Sonawane** — Backend, RAG pipeline & ingestion
-- **Sarthak Sunil Khairnar** — Frontend, agents & testing
-
 ---
 
 ## 📜 License
