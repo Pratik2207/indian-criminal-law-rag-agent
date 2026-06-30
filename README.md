@@ -1,9 +1,4 @@
 
-
-https://github.com/user-attachments/assets/faadeccb-82ed-4b70-b279-64ea9414d49b
-
-<div align="center">
-
 # ⚖️ Indian Criminal Law RAG Agent
 
 **A fully local, open-source Retrieval-Augmented Generation (RAG) assistant for Indian Criminal Law — IPC, CrPC, BNS & BNSS.**
@@ -40,7 +35,10 @@ Observed on representative queries: **~60–70% less research time**, **3–6 s*
 
 <div align="center">
 
-### ▶️ [**Watch the demo video**](https://github.com/Pratik2207/indian-criminal-law-rag-agent/blob/main/assets/demo.mp4)
+### ▶️ [**Watch the demo video**]
+
+https://github.com/user-attachments/assets/30aa93ea-4021-4d98-abe9-9b07ec743110
+
 
 *(opens GitHub's built-in video player)*
 
