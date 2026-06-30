@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/faadeccb-82ed-4b70-b279-64ea9414d49b
+
 <div align="center">
 
 # ⚖️ Indian Criminal Law RAG Agent
