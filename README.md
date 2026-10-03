@@ -201,6 +201,10 @@ The golden set has 60 hand-written questions (concepts, procedure, IPC↔BNS map
 
 The first version used a three-agent CrewAI pipeline. Its academic report and UML diagrams are kept for reference: **[report.md](report.md)**, [docs/architecture_explanation.md](docs/architecture_explanation.md) and [docs/figures/](docs/figures/). See the improvement report for why the design changed.
 
+**v1 demo video (old interface):**
+
+https://github.com/user-attachments/assets/30aa93ea-4021-4d98-abe9-9b07ec743110
+
 </details>
 
 ## 📜 License
