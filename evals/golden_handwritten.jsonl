@@ -1,0 +1,60 @@
+{"id": "h01", "query": "What is the punishment for murder under BNS?", "gold": [["BNS", "103"]], "type": "concept", "lang": "en"}
+{"id": "h02", "query": "What is the punishment for murder?", "gold": [["IPC", "302"], ["BNS", "103"]], "type": "concept", "lang": "en"}
+{"id": "h03", "query": "Define culpable homicide", "gold": [["IPC", "299"], ["BNS", "100"]], "type": "concept", "lang": "en"}
+{"id": "h04", "query": "When is culpable homicide not murder?", "gold": [["IPC", "300"], ["BNS", "101"]], "type": "concept", "lang": "en"}
+{"id": "h05", "query": "What is the punishment for theft?", "gold": [["IPC", "379"], ["BNS", "303"]], "type": "concept", "lang": "en"}
+{"id": "h06", "query": "What is the legal definition of theft?", "gold": [["IPC", "378"], ["BNS", "303"]], "type": "concept", "lang": "en"}
+{"id": "h07", "query": "What is the punishment for rape under the new criminal law?", "gold": [["BNS", "64"]], "type": "concept", "lang": "en"}
+{"id": "h08", "query": "Punishment for causing death by rash or negligent driving and hit and run", "gold": [["BNS", "106"], ["IPC", "304A"]], "type": "concept", "lang": "en"}
+{"id": "h09", "query": "What is the punishment for attempt to murder?", "gold": [["IPC", "307"], ["BNS", "109"]], "type": "concept", "lang": "en"}
+{"id": "h10", "query": "Cheating and dishonestly inducing delivery of property", "gold": [["IPC", "420"], ["BNS", "318"]], "type": "concept", "lang": "en"}
+{"id": "h11", "query": "What is criminal breach of trust and its punishment?", "gold": [["IPC", "405"], ["IPC", "406"], ["BNS", "316"]], "type": "concept", "lang": "en"}
+{"id": "h12", "query": "What is dowry death?", "gold": [["IPC", "304B"], ["BNS", "80"]], "type": "concept", "lang": "en"}
+{"id": "h13", "query": "Husband or his relatives subjecting a woman to cruelty", "gold": [["IPC", "498A"], ["BNS", "85"], ["BNS", "86"]], "type": "concept", "lang": "en"}
+{"id": "h14", "query": "What is defamation and how is it punished?", "gold": [["IPC", "499"], ["IPC", "500"], ["BNS", "356"]], "type": "concept", "lang": "en"}
+{"id": "h15", "query": "Punishment for criminal intimidation and threatening someone", "gold": [["IPC", "503"], ["IPC", "506"], ["BNS", "351"]], "type": "concept", "lang": "en"}
+{"id": "h16", "query": "What is extortion?", "gold": [["IPC", "383"], ["IPC", "384"], ["BNS", "308"]], "type": "concept", "lang": "en"}
+{"id": "h17", "query": "When does theft become robbery?", "gold": [["IPC", "390"], ["BNS", "309"]], "type": "concept", "lang": "en"}
+{"id": "h18", "query": "What is dacoity and what is the punishment?", "gold": [["IPC", "391"], ["IPC", "395"], ["BNS", "310"]], "type": "concept", "lang": "en"}
+{"id": "h19", "query": "Is chain snatching a separate offence?", "gold": [["BNS", "304"]], "type": "concept", "lang": "en"}
+{"id": "h20", "query": "What counts as organised crime under the BNS?", "gold": [["BNS", "111"]], "type": "concept", "lang": "en"}
+{"id": "h21", "query": "Definition of terrorist act in the Bharatiya Nyaya Sanhita", "gold": [["BNS", "113"]], "type": "concept", "lang": "en"}
+{"id": "h22", "query": "When does the right of private defence of the body extend to causing death?", "gold": [["IPC", "100"], ["BNS", "38"]], "type": "concept", "lang": "en"}
+{"id": "h23", "query": "Can a child under seven years be guilty of an offence?", "gold": [["IPC", "82"], ["BNS", "20"]], "type": "concept", "lang": "en"}
+{"id": "h24", "query": "Act done by a person of unsound mind", "gold": [["IPC", "84"], ["BNS", "22"]], "type": "concept", "lang": "en"}
+{"id": "h25", "query": "Punishment for criminal conspiracy", "gold": [["IPC", "120A"], ["IPC", "120B"], ["BNS", "61"]], "type": "concept", "lang": "en"}
+{"id": "h26", "query": "Acts done by several persons in furtherance of common intention", "gold": [["IPC", "34"], ["BNS", "3"]], "type": "concept", "lang": "en"}
+{"id": "h27", "query": "What is criminal trespass?", "gold": [["IPC", "441"], ["BNS", "329"]], "type": "concept", "lang": "en"}
+{"id": "h28", "query": "Assault or criminal force to outrage the modesty of a woman", "gold": [["IPC", "354"], ["BNS", "74"]], "type": "concept", "lang": "en"}
+{"id": "h29", "query": "Punishment for kidnapping a child", "gold": [["IPC", "363"], ["BNS", "137"]], "type": "concept", "lang": "en"}
+{"id": "h30", "query": "How is an FIR registered for a cognizable offence?", "gold": [["CrPC", "154"], ["BNSS", "173"]], "type": "procedure", "lang": "en"}
+{"id": "h31", "query": "When can the police arrest a person without a warrant?", "gold": [["CrPC", "41"], ["BNSS", "35"]], "type": "procedure", "lang": "en"}
+{"id": "h32", "query": "How to get anticipatory bail?", "gold": [["CrPC", "438"], ["BNSS", "482"]], "type": "procedure", "lang": "en"}
+{"id": "h33", "query": "When can bail be granted in a non-bailable offence?", "gold": [["CrPC", "437"], ["BNSS", "480"]], "type": "procedure", "lang": "en"}
+{"id": "h34", "query": "Is bail a right in bailable offences?", "gold": [["CrPC", "436"], ["BNSS", "478"]], "type": "procedure", "lang": "en"}
+{"id": "h35", "query": "Order for maintenance of wife, children and parents", "gold": [["CrPC", "125"], ["BNSS", "144"]], "type": "procedure", "lang": "en"}
+{"id": "h36", "query": "Recording of confessions and statements by a Magistrate", "gold": [["CrPC", "164"], ["BNSS", "183"]], "type": "procedure", "lang": "en"}
+{"id": "h37", "query": "What happens when investigation cannot be completed in twenty-four hours? Maximum police custody and default bail", "gold": [["CrPC", "167"], ["BNSS", "187"]], "type": "procedure", "lang": "en"}
+{"id": "h38", "query": "Police report or chargesheet on completion of investigation", "gold": [["CrPC", "173"], ["BNSS", "193"]], "type": "procedure", "lang": "en"}
+{"id": "h39", "query": "Inherent powers of the High Court in criminal matters", "gold": [["CrPC", "482"], ["BNSS", "528"]], "type": "procedure", "lang": "en"}
+{"id": "h40", "query": "Which offences can be compounded?", "gold": [["CrPC", "320"], ["BNSS", "359"]], "type": "procedure", "lang": "en"}
+{"id": "h41", "query": "An arrested person cannot be detained by police for more than twenty-four hours", "gold": [["CrPC", "57"], ["BNSS", "58"]], "type": "procedure", "lang": "en"}
+{"id": "h42", "query": "Power of the court to examine the accused", "gold": [["CrPC", "313"], ["BNSS", "351"]], "type": "procedure", "lang": "en"}
+{"id": "h43", "query": "Can a proclaimed offender be tried in absentia?", "gold": [["BNSS", "356"]], "type": "procedure", "lang": "en"}
+{"id": "h44", "query": "Application for plea bargaining", "gold": [["CrPC", "265B"], ["BNSS", "290"]], "type": "procedure", "lang": "en"}
+{"id": "h45", "query": "Can an FIR be lodged at any police station irrespective of where the offence happened (zero FIR)?", "gold": [["BNSS", "173"]], "type": "procedure", "lang": "en"}
+{"id": "h46", "query": "What is IPC 302 called in BNS?", "gold": [["IPC", "302"], ["BNS", "103"]], "type": "mapping", "lang": "en"}
+{"id": "h47", "query": "IPC 420 equivalent section in BNS", "gold": [["IPC", "420"], ["BNS", "318"]], "type": "mapping", "lang": "en"}
+{"id": "h48", "query": "CrPC 438 corresponding section in BNSS", "gold": [["CrPC", "438"], ["BNSS", "482"]], "type": "mapping", "lang": "en"}
+{"id": "h49", "query": "Show me Section 103 of BNS", "gold": [["BNS", "103"]], "type": "lookup", "lang": "en"}
+{"id": "h50", "query": "What does section 154 CrPC say?", "gold": [["CrPC", "154"]], "type": "lookup", "lang": "en"}
+{"id": "h51", "query": "BNSS section 35", "gold": [["BNSS", "35"]], "type": "lookup", "lang": "en"}
+{"id": "h52", "query": "Explain section 498A IPC", "gold": [["IPC", "498A"]], "type": "lookup", "lang": "en"}
+{"id": "h53", "query": "हत्या के लिए सजा क्या है?", "gold": [["IPC", "302"], ["BNS", "103"]], "type": "concept", "lang": "hi"}
+{"id": "h54", "query": "अग्रिम जमानत कैसे मिलती है?", "gold": [["CrPC", "438"], ["BNSS", "482"]], "type": "procedure", "lang": "hi"}
+{"id": "h55", "query": "चोरी की सजा क्या है?", "gold": [["IPC", "379"], ["BNS", "303"]], "type": "concept", "lang": "hi"}
+{"id": "h56", "query": "What is the GST rate on restaurant food?", "gold": [], "type": "out_of_scope", "lang": "en"}
+{"id": "h57", "query": "How do I file for divorce under the Hindu Marriage Act?", "gold": [], "type": "out_of_scope", "lang": "en"}
+{"id": "h58", "query": "What are the income tax slabs for this year?", "gold": [], "type": "out_of_scope", "lang": "en"}
+{"id": "h59", "query": "How do I register a trademark in India?", "gold": [], "type": "out_of_scope", "lang": "en"}
+{"id": "h60", "query": "Explain the LBW rule in cricket", "gold": [], "type": "out_of_scope", "lang": "en"}

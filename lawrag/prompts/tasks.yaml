@@ -1,0 +1,22 @@
+research_task:
+  description: >
+    Research this question: {query}
+
+    Use the tools to collect every relevant provision. Search statutes first; look up exact sections when numbers
+    are mentioned (lookup_section also returns the old/new equivalent). Use web/case-law search only if the
+    question asks about precedents, judgments or recent changes.
+  expected_output: >
+    The relevant sources copied verbatim, each starting with its tag and label exactly as the tool returned it
+    (e.g. "[S1] BNS s.103 — Punishment for murder"), followed by a one-line note on why it is relevant.
+  agent: research_agent
+
+legal_reasoning_task:
+  description: >
+    Using ONLY the research sources, answer: {query}
+
+    After every factual sentence cite the supporting tag(s), e.g. "[S1]" or "[W2]". Name the Act and section in
+    words too. Never mention a section number that is not in the sources. Give the new code (BNS/BNSS) first and
+    the old equivalent (IPC/CrPC) after it. If the sources don't answer the question, say so.
+  expected_output: >
+    A concise markdown answer with inline source tags after each claim.
+  agent: legal_reasoning_agent

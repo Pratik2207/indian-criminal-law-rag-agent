@@ -1,10 +1,11 @@
-crewai
-crewai-tools
-chonkie[semantic]
-markitdown
-qdrant-client
-fastembed
-sentence-transformers
-pydantic
-streamlit
-python-dotenv
+# Core pipeline
+qdrant-client==1.19.1
+fastembed==0.8.1
+pymupdf==1.28.2
+pydantic==2.12.5
+pydantic-settings==2.15.0
+python-dotenv==1.2.4
+requests==2.34.2
+streamlit==1.65.0
+# Optional agentic mode (crew.py)
+crewai==1.15.23

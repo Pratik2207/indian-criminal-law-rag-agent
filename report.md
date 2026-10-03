@@ -391,6 +391,8 @@ Testing was performed at three levels: unit, integration and acceptance. The aim
 
 ## 9. Results and Discussion
 
+> **Update (October 2026):** A later automated re-evaluation of the originally shipped pipeline on a 107-query golden set, with gold sections verified against the statute text, measured **Hit@5 = 18.7%**. This was caused by a query/document embedding-model mismatch, a broken BNS PDF extraction and duplicate chunks. After the fixes described in [docs/IMPROVEMENT_REPORT.md](docs/IMPROVEMENT_REPORT.md), the system measures **Hit@5 = 88.8%** (MRR@10 0.726). The figures below are the original manual observations and are kept for the record.
+
 The system was evaluated on a set of 20 representative legal queries spanning the IPC, CrPC, BNS and BNSS. Key observations:
 
 - **Retrieval accuracy:** Approximately 85–90% of queries produced at least one chunk that a human evaluator marked as "directly relevant" in the top-5 results.

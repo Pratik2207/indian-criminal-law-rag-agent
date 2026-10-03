@@ -1,34 +1,37 @@
 graph TD
-    User[User] --> WebUI(Web Interface)
-    WebUI --> CrewAI(CrewAI Orchestrator)
+    User[User] --> UI(Streamlit chat UI)
 
-    CrewAI --> ResearchAgent(Research Agent)
-    CrewAI --> LegalReasoningAgent(Legal Reasoning Agent)
-    CrewAI --> RetrievalAgent(Retrieval Agent)
+    subgraph Offline ingestion
+        PDFs[Statute PDFs<br/>BNS · BNSS · IPC · CrPC] --> Parser(legal_parser.py<br/>sections + metadata)
+        Parser --> Chunker(Section-aware chunks<br/>+ context header)
+        Chunker --> Embed(FastEmbed<br/>BGE dense + BM25 sparse)
+        Embed --> Qdrant[(Qdrant<br/>indian_law_v2)]
+        MapPDF[Official correspondence tables] --> Map[(data/section_map.csv)]
+    end
 
-    RetrievalAgent --> QdrantDB[Qdrant Vector Database]
-    RetrievalAgent --> DocumentIngestion(Document Ingestion)
-    DocumentIngestion --> ChunkingEmbeddings(Chunking & Embeddings)
-    ChunkingEmbeddings --> QdrantDB
+    UI --> QA(Query analysis<br/>refs · IPC↔BNS map · translate)
+    QA --> Map
+    QA --> Exact(Exact section lookup)
+    QA --> Hybrid(Hybrid search<br/>dense + BM25, RRF)
+    Exact --> Qdrant
+    Hybrid --> Qdrant
+    Hybrid --> Rerank(Cross-encoder rerank)
+    Exact --> Gen
+    Rerank --> Abstain{score ≥ threshold?}
+    Abstain -- no --> UI
+    Abstain -- yes --> Gen(Grounded generation<br/>Ollama · cites S#/W#)
+    Web(Indian Kanoon / Serper<br/>optional) --> Gen
+    Gen --> Verify(Citation verifier<br/>links · unsupported · non-existent)
+    Verify --> UI
 
-    ResearchAgent --> Serper(Serper Web Search)
+    UI -. agentic mode .-> Crew(CrewAI researcher + writer)
+    Crew --> Exact
+    Crew --> Hybrid
+    Crew --> Web
+    Crew --> Verify
 
-    ResearchAgent --> OllamaLLM(Ollama LLaMA 3.2)
-    LegalReasoningAgent --> OllamaLLM
-    RetrievalAgent --> OllamaLLM
-
-    WebUI --> OllamaLLM
-    WebUI --> QdrantDB
-    WebUI --> Serper
-
-    style User fill:#f9f,stroke:#333,stroke-width:2px
-    style WebUI fill:#bbf,stroke:#333,stroke-width:2px
-    style CrewAI fill:#ccf,stroke:#333,stroke-width:2px
-    style ResearchAgent fill:#fcf,stroke:#333,stroke-width:2px
-    style LegalReasoningAgent fill:#fcf,stroke:#333,stroke-width:2px
-    style RetrievalAgent fill:#fcf,stroke:#333,stroke-width:2px
-    style QdrantDB fill:#ffc,stroke:#333,stroke-width:2px
-    style DocumentIngestion fill:#cfc,stroke:#333,stroke-width:2px
-    style ChunkingEmbeddings fill:#cfc,stroke:#333,stroke-width:2px
-    style Serper fill:#cff,stroke:#333,stroke-width:2px
-    style OllamaLLM fill:#fcc,stroke:#333,stroke-width:2px
+    style Qdrant fill:#ffc,stroke:#333
+    style Map fill:#ffc,stroke:#333
+    style Gen fill:#fcc,stroke:#333
+    style Verify fill:#cfc,stroke:#333
+    style Crew fill:#fcf,stroke:#333
