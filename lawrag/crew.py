@@ -92,6 +92,9 @@ class IndianLawRagCrew:
     def __init__(self, retriever: Retriever | None = None):
         s = get_settings()
         self.llm = LLM(model=f"ollama/{s.ollama_model}", base_url=s.ollama_base_url, temperature=0.1)
+        # Force CrewAI's text ReAct loop (Thought -> Action -> Observation, repeated until Final Answer).
+        # Otherwise it uses native tool calling for Ollama models, which skips the explicit Thought step.
+        self.llm.supports_function_calling = lambda: False
         self.registry = SourceRegistry()
         self.tools = build_tools(self.registry, retriever or Retriever(mode="full"))
         if not (s.serper_api_key or s.indian_kanoon_api_token):
