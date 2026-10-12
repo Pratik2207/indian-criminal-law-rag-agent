@@ -122,16 +122,39 @@ class IndianLawRagCrew:
     def crew(self) -> Crew:
         return Crew(agents=self.agents, tasks=self.tasks, process=Process.sequential, verbose=True, tracing=False)
 
-    def run(self, query: str):
-        result = self.crew().kickoff(inputs={"query": query})
+    def run(self, query: str, step_callback=None):
+        c = self.crew()
+        if step_callback:  # called after every agent step (Thought/Action/Observation, or the final answer)
+            for a in c.agents:
+                a.step_callback = step_callback
+        result = c.kickoff(inputs={"query": query})
         raw = getattr(result, "raw", str(result))
         return raw, verify_and_link(raw, self.registry.sources), self.registry.sources
 
 
 if __name__ == "__main__":
+    # python -m lawrag.crew "question"   one question
+    # python -m lawrag.crew              interactive: ask questions until an empty line or Ctrl+C
     import sys
 
-    q = " ".join(sys.argv[1:]) or "What is the punishment for murder under BNS and what was it under IPC?"
-    raw, verification, sources = IndianLawRagCrew().run(q)
-    print(verification.markdown)
-    print("\nnonexistent sections:", verification.nonexistent, "| invalid tags:", verification.invalid_tags)
+    for _stream in (sys.stdout, sys.stderr):
+        _stream.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
+
+    def ask(crew: IndianLawRagCrew, q: str):
+        crew.registry.sources.clear()  # [S#] numbering starts again for each question
+        raw, verification, sources = crew.run(q)
+        print("\n" + "=" * 78 + "\nVERIFIED ANSWER\n" + "=" * 78)
+        print(verification.markdown)
+        print("\nsources:", ", ".join(f"[{s.id}] {s.label}" for s in sources) or "-")
+        print("nonexistent sections:", verification.nonexistent, "| invalid tags:", verification.invalid_tags)
+
+    crew = IndianLawRagCrew()
+    if sys.argv[1:]:
+        ask(crew, " ".join(sys.argv[1:]))
+    else:
+        print("Agent console. Type a question and press Enter. Empty line or Ctrl+C to quit.")
+        try:
+            while q := input("\nQuestion> ").strip():
+                ask(crew, q)
+        except (KeyboardInterrupt, EOFError):
+            pass

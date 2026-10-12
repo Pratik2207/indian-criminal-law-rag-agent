@@ -158,3 +158,16 @@ def test_section_map_file_loads():
     retrieval.section_map.cache_clear()
     assert ("BNS", "103") in retrieval.section_map()[("IPC", "302")]
     assert ("BNSS", "482") in retrieval.section_map()[("CrPC", "438")]
+
+
+def test_server_status_never_exposes_keys(monkeypatch):
+    from starlette.testclient import TestClient
+
+    import server
+    from lawrag.config import get_settings
+
+    secret = "sk-test-0123456789"
+    monkeypatch.setattr(get_settings(), "serper_api_key", secret)
+    r = TestClient(server.app).get("/api/status")  # no `with`: models aren't loaded
+    assert r.status_code == 200 and r.json()["web_available"] is True
+    assert secret not in r.text and "key" not in r.text.lower()

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indian Criminal Law</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%238c2f39'/%3E%3Cpath d='M16 7v18M10 25h12M8 11h16M8 11l-3 7h6zM24 11l-3 7h6z' stroke='%23fff' stroke-width='1.8' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <strong>Indian Criminal Law</strong>
+    <span>BNS · BNSS · IPC · CrPC</span>
+  </div>
+  <div class="top-right">
+    <span id="server-state" class="state" data-state="loading">Loading</span>
+    <button id="new-chat" class="text-btn" type="button">New chat</button>
+  </div>
+</header>
+
+<main id="chat" class="chat" aria-live="polite">
+  <section id="empty" class="empty">
+    <h1>Ask a question about Indian criminal law.</h1>
+    <p>Answers come from the text of the four Acts. Every citation links to the page it came from.</p>
+    <div class="examples">
+      <button type="button">What is the punishment for murder under the BNS?</button>
+      <button type="button">What is IPC 420 called in the BNS?</button>
+      <button type="button">When can police arrest without a warrant under the BNSS?</button>
+      <button type="button">Is theft a bailable offence?</button>
+    </div>
+  </section>
+</main>
+
+<footer class="composer-wrap">
+  <form id="composer" class="composer">
+    <textarea id="input" rows="1" placeholder="Ask about a section, an offence or a procedure" aria-label="Your question"></textarea>
+    <div class="composer-bar">
+      <div class="modes">
+        <label class="mode" id="mode-web">
+          <input type="checkbox" id="web">
+          <span>Web search</span>
+        </label>
+        <label class="mode" id="mode-agent">
+          <input type="checkbox" id="agent">
+          <span>Agent</span>
+        </label>
+      </div>
+      <button id="send" class="send" type="submit" aria-label="Send" disabled>
+        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 16V4M4.5 9.5 10 4l5.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </form>
+  <p class="fineprint">Legal information from the statute text, not legal advice.</p>
+</footer>
+
+<template id="tpl-user">
+  <div class="msg user"><div class="bubble"></div></div>
+</template>
+
+<template id="tpl-bot">
+  <div class="msg bot">
+    <div class="status"><span class="dot"></span><span class="status-text"></span></div>
+    <ol class="steps" hidden></ol>
+    <div class="answer"></div>
+    <details class="sources" hidden>
+      <summary></summary>
+      <ul></ul>
+    </details>
+    <div class="meta" hidden>
+      <span class="time"></span>
+      <span class="rate">
+        <button type="button" class="icon-btn" data-up="1" aria-label="Good answer" title="Good answer">
+          <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M6 9v8H3V9zm0 0 3.5-6c1.2 0 2 .9 1.8 2.1L10.8 8H16a1.5 1.5 0 0 1 1.5 1.8l-1.2 5.7A2 2 0 0 1 14.3 17H6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="icon-btn" data-up="0" aria-label="Bad answer" title="Bad answer">
+          <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M14 11V3h3v8zm0 0-3.5 6c-1.2 0-2-.9-1.8-2.1L9.2 12H4a1.5 1.5 0 0 1-1.5-1.8l1.2-5.7A2 2 0 0 1 5.7 3H14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </button>
+      </span>
+    </div>
+  </div>
+</template>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>

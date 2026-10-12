@@ -83,7 +83,7 @@ flowchart LR
 
 | Layer | Implementation |
 |---|---|
-| **UI** | `app.py`: Streamlit chat, streaming, sources panel, feedback, agentic-mode toggle |
+| **UI** | `server.py` + `web/`: chat page with streaming, sources panel, feedback, web and agent modes. API keys stay on the server. (`app.py`: older Streamlit UI) |
 | **Pipeline** | `lawrag/answer.py`: retrieve → abstain? → expand → generate → verify |
 | **Retrieval** | `lawrag/retrieval.py`: query analysis, exact lookup, hybrid search, rerank |
 | **Citations** | `lawrag/citations.py`: tag → link, verification checks |
@@ -110,12 +110,14 @@ ollama pull qwen2.5:3b
 
 python -m lawrag.ingest --rebuild        # build the index (~8 min on a laptop CPU)
 python scripts/check_index.py            # expect 2,604 points
-streamlit run app.py                     # open http://localhost:8501
+python server.py                         # open http://127.0.0.1:8000
+# or, agent mode in the terminal only (full CrewAI trace, no browser):
+# python -m lawrag.crew                  # interactive; or: python -m lawrag.crew "your question"
 ```
 
 Try asking *"What is IPC 302 called in BNS?"* or *"When can police arrest without a warrant?"*
 
-**Optional keys** in `.env`: `SERPER_API_KEY` (web search) and `INDIAN_KANOON_API_TOKEN` (case law). Then switch on **Search case law and the web** in the sidebar.
+**Optional keys** in `.env`: `SERPER_API_KEY` (web search) and `INDIAN_KANOON_API_TOKEN` (case law). Then switch on **Web search** under the chat box. The keys never leave the server; the page only learns whether web search is available.
 
 ### Choosing a model
 
@@ -153,7 +155,9 @@ The golden set has 60 hand-written questions (concepts, procedure, IPC↔BNS map
 ## 📂 Project structure
 
 ```
-├── app.py                      # Streamlit chat UI (entry point)
+├── server.py                   # web UI server (entry point): chat page + streaming API
+├── web/                        # index.html, style.css, app.js (no build step)
+├── app.py                      # older Streamlit UI
 ├── lawrag/                     # core package
 │   ├── config.py               #   settings from .env (pydantic-settings)
 │   ├── parser.py               #   PDF → sections (Gazette and India Code layouts)
@@ -181,7 +185,7 @@ The golden set has 60 hand-written questions (concepts, procedure, IPC↔BNS map
 | `Storage folder … is already accessed by another instance` | The local DB allows one process at a time: close the app before running ingestion or evals, or run a Qdrant server and set `QDRANT_URL`. |
 | Ollama connection error | Start Ollama, `ollama pull <OLLAMA_MODEL>`, and check `OLLAMA_BASE_URL`. |
 | `Collection 'indian_law_v2' not found` | Run `python -m lawrag.ingest --rebuild`. |
-| Citation links don't open | Keep `.streamlit/config.toml` (`enableStaticServing = true`); the app copies the PDFs to `static/` on start. |
+| Citation links don't open | The server copies the PDFs to `static/` on start and serves them at `/app/static/`. For the Streamlit UI, keep `.streamlit/config.toml` (`enableStaticServing = true`). |
 
 ## 🗺️ Roadmap
 
